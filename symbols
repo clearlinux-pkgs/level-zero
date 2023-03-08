@@ -520,6 +520,7 @@ libze_loader.so.1:zetMetricGetProperties
 libze_loader.so.1:zetMetricGroupCalculateMetricValues
 libze_loader.so.1:zetMetricGroupCalculateMultipleMetricValuesExp
 libze_loader.so.1:zetMetricGroupGet
+libze_loader.so.1:zetMetricGroupGetGlobalTimestampsExp
 libze_loader.so.1:zetMetricGroupGetProperties
 libze_loader.so.1:zetMetricQueryCreate
 libze_loader.so.1:zetMetricQueryDestroy

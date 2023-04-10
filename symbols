@@ -40,6 +40,7 @@ libze_loader.so.1:zeCommandListClose
 libze_loader.so.1:zeCommandListCreate
 libze_loader.so.1:zeCommandListCreateImmediate
 libze_loader.so.1:zeCommandListDestroy
+libze_loader.so.1:zeCommandListHostSynchronize
 libze_loader.so.1:zeCommandListReset
 libze_loader.so.1:zeCommandQueueCreate
 libze_loader.so.1:zeCommandQueueDestroy
@@ -78,6 +79,7 @@ libze_loader.so.1:zeDriverGetApiVersion
 libze_loader.so.1:zeDriverGetExtensionFunctionAddress
 libze_loader.so.1:zeDriverGetExtensionProperties
 libze_loader.so.1:zeDriverGetIpcProperties
+libze_loader.so.1:zeDriverGetLastErrorDescription
 libze_loader.so.1:zeDriverGetProperties
 libze_loader.so.1:zeEventCreate
 libze_loader.so.1:zeEventDestroy
@@ -89,7 +91,9 @@ libze_loader.so.1:zeEventPoolCreate
 libze_loader.so.1:zeEventPoolDestroy
 libze_loader.so.1:zeEventPoolGetIpcHandle
 libze_loader.so.1:zeEventPoolOpenIpcHandle
+libze_loader.so.1:zeEventPoolPutIpcHandle
 libze_loader.so.1:zeEventQueryKernelTimestamp
+libze_loader.so.1:zeEventQueryKernelTimestampsExt
 libze_loader.so.1:zeEventQueryStatus
 libze_loader.so.1:zeEventQueryTimestampsExp
 libze_loader.so.1:zeFabricEdgeGetExp
@@ -121,6 +125,7 @@ libze_loader.so.1:zeGetImageExpProcAddrTable
 libze_loader.so.1:zeGetImageProcAddrTable
 libze_loader.so.1:zeGetKernelExpProcAddrTable
 libze_loader.so.1:zeGetKernelProcAddrTable
+libze_loader.so.1:zeGetMemExpProcAddrTable
 libze_loader.so.1:zeGetMemProcAddrTable
 libze_loader.so.1:zeGetModuleBuildLogProcAddrTable
 libze_loader.so.1:zeGetModuleProcAddrTable
@@ -159,8 +164,11 @@ libze_loader.so.1:zeMemFree
 libze_loader.so.1:zeMemFreeExt
 libze_loader.so.1:zeMemGetAddressRange
 libze_loader.so.1:zeMemGetAllocProperties
+libze_loader.so.1:zeMemGetFileDescriptorFromIpcHandleExp
 libze_loader.so.1:zeMemGetIpcHandle
+libze_loader.so.1:zeMemGetIpcHandleFromFileDescriptorExp
 libze_loader.so.1:zeMemOpenIpcHandle
+libze_loader.so.1:zeMemPutIpcHandle
 libze_loader.so.1:zeModuleBuildLogDestroy
 libze_loader.so.1:zeModuleBuildLogGetString
 libze_loader.so.1:zeModuleCreate
@@ -216,6 +224,7 @@ libze_loader.so.1:zelTracerCommandListCloseRegisterCallback
 libze_loader.so.1:zelTracerCommandListCreateImmediateRegisterCallback
 libze_loader.so.1:zelTracerCommandListCreateRegisterCallback
 libze_loader.so.1:zelTracerCommandListDestroyRegisterCallback
+libze_loader.so.1:zelTracerCommandListHostSynchronizeRegisterCallback
 libze_loader.so.1:zelTracerCommandListResetRegisterCallback
 libze_loader.so.1:zelTracerCommandQueueCreateRegisterCallback
 libze_loader.so.1:zelTracerCommandQueueDestroyRegisterCallback
@@ -255,6 +264,7 @@ libze_loader.so.1:zelTracerDriverGetApiVersionRegisterCallback
 libze_loader.so.1:zelTracerDriverGetExtensionFunctionAddressRegisterCallback
 libze_loader.so.1:zelTracerDriverGetExtensionPropertiesRegisterCallback
 libze_loader.so.1:zelTracerDriverGetIpcPropertiesRegisterCallback
+libze_loader.so.1:zelTracerDriverGetLastErrorDescriptionRegisterCallback
 libze_loader.so.1:zelTracerDriverGetPropertiesRegisterCallback
 libze_loader.so.1:zelTracerDriverGetRegisterCallback
 libze_loader.so.1:zelTracerEventCreateRegisterCallback
@@ -267,7 +277,9 @@ libze_loader.so.1:zelTracerEventPoolCreateRegisterCallback
 libze_loader.so.1:zelTracerEventPoolDestroyRegisterCallback
 libze_loader.so.1:zelTracerEventPoolGetIpcHandleRegisterCallback
 libze_loader.so.1:zelTracerEventPoolOpenIpcHandleRegisterCallback
+libze_loader.so.1:zelTracerEventPoolPutIpcHandleRegisterCallback
 libze_loader.so.1:zelTracerEventQueryKernelTimestampRegisterCallback
+libze_loader.so.1:zelTracerEventQueryKernelTimestampsExtRegisterCallback
 libze_loader.so.1:zelTracerEventQueryStatusRegisterCallback
 libze_loader.so.1:zelTracerEventQueryTimestampsExpRegisterCallback
 libze_loader.so.1:zelTracerFabricEdgeGetExpRegisterCallback
@@ -312,8 +324,11 @@ libze_loader.so.1:zelTracerMemFreeExtRegisterCallback
 libze_loader.so.1:zelTracerMemFreeRegisterCallback
 libze_loader.so.1:zelTracerMemGetAddressRangeRegisterCallback
 libze_loader.so.1:zelTracerMemGetAllocPropertiesRegisterCallback
+libze_loader.so.1:zelTracerMemGetFileDescriptorFromIpcHandleExpRegisterCallback
+libze_loader.so.1:zelTracerMemGetIpcHandleFromFileDescriptorExpRegisterCallback
 libze_loader.so.1:zelTracerMemGetIpcHandleRegisterCallback
 libze_loader.so.1:zelTracerMemOpenIpcHandleRegisterCallback
+libze_loader.so.1:zelTracerMemPutIpcHandleRegisterCallback
 libze_loader.so.1:zelTracerModuleBuildLogDestroyRegisterCallback
 libze_loader.so.1:zelTracerModuleBuildLogGetStringRegisterCallback
 libze_loader.so.1:zelTracerModuleCreateRegisterCallback
@@ -559,6 +574,7 @@ libze_tracing_layer.so.1:zeGetImageExpProcAddrTable
 libze_tracing_layer.so.1:zeGetImageProcAddrTable
 libze_tracing_layer.so.1:zeGetKernelExpProcAddrTable
 libze_tracing_layer.so.1:zeGetKernelProcAddrTable
+libze_tracing_layer.so.1:zeGetMemExpProcAddrTable
 libze_tracing_layer.so.1:zeGetMemProcAddrTable
 libze_tracing_layer.so.1:zeGetModuleBuildLogProcAddrTable
 libze_tracing_layer.so.1:zeGetModuleProcAddrTable
@@ -594,6 +610,7 @@ libze_tracing_layer.so.1:zelTracerCommandListCloseRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandListCreateImmediateRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandListCreateRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandListDestroyRegisterCallback
+libze_tracing_layer.so.1:zelTracerCommandListHostSynchronizeRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandListResetRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandQueueCreateRegisterCallback
 libze_tracing_layer.so.1:zelTracerCommandQueueDestroyRegisterCallback
@@ -631,6 +648,7 @@ libze_tracing_layer.so.1:zelTracerDriverGetApiVersionRegisterCallback
 libze_tracing_layer.so.1:zelTracerDriverGetExtensionFunctionAddressRegisterCallback
 libze_tracing_layer.so.1:zelTracerDriverGetExtensionPropertiesRegisterCallback
 libze_tracing_layer.so.1:zelTracerDriverGetIpcPropertiesRegisterCallback
+libze_tracing_layer.so.1:zelTracerDriverGetLastErrorDescriptionRegisterCallback
 libze_tracing_layer.so.1:zelTracerDriverGetPropertiesRegisterCallback
 libze_tracing_layer.so.1:zelTracerDriverGetRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventCreateRegisterCallback
@@ -643,7 +661,9 @@ libze_tracing_layer.so.1:zelTracerEventPoolCreateRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventPoolDestroyRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventPoolGetIpcHandleRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventPoolOpenIpcHandleRegisterCallback
+libze_tracing_layer.so.1:zelTracerEventPoolPutIpcHandleRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventQueryKernelTimestampRegisterCallback
+libze_tracing_layer.so.1:zelTracerEventQueryKernelTimestampsExtRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventQueryStatusRegisterCallback
 libze_tracing_layer.so.1:zelTracerEventQueryTimestampsExpRegisterCallback
 libze_tracing_layer.so.1:zelTracerFabricEdgeGetExpRegisterCallback
@@ -688,8 +708,11 @@ libze_tracing_layer.so.1:zelTracerMemFreeExtRegisterCallback
 libze_tracing_layer.so.1:zelTracerMemFreeRegisterCallback
 libze_tracing_layer.so.1:zelTracerMemGetAddressRangeRegisterCallback
 libze_tracing_layer.so.1:zelTracerMemGetAllocPropertiesRegisterCallback
+libze_tracing_layer.so.1:zelTracerMemGetFileDescriptorFromIpcHandleExpRegisterCallback
+libze_tracing_layer.so.1:zelTracerMemGetIpcHandleFromFileDescriptorExpRegisterCallback
 libze_tracing_layer.so.1:zelTracerMemGetIpcHandleRegisterCallback
 libze_tracing_layer.so.1:zelTracerMemOpenIpcHandleRegisterCallback
+libze_tracing_layer.so.1:zelTracerMemPutIpcHandleRegisterCallback
 libze_tracing_layer.so.1:zelTracerModuleBuildLogDestroyRegisterCallback
 libze_tracing_layer.so.1:zelTracerModuleBuildLogGetStringRegisterCallback
 libze_tracing_layer.so.1:zelTracerModuleCreateRegisterCallback
@@ -729,6 +752,7 @@ libze_validation_layer.so.1:zeGetImageExpProcAddrTable
 libze_validation_layer.so.1:zeGetImageProcAddrTable
 libze_validation_layer.so.1:zeGetKernelExpProcAddrTable
 libze_validation_layer.so.1:zeGetKernelProcAddrTable
+libze_validation_layer.so.1:zeGetMemExpProcAddrTable
 libze_validation_layer.so.1:zeGetMemProcAddrTable
 libze_validation_layer.so.1:zeGetModuleBuildLogProcAddrTable
 libze_validation_layer.so.1:zeGetModuleProcAddrTable

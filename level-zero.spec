@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : level-zero
-Version  : 1.10
-Release  : 9
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.10/level-zero-1.10.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.10/level-zero-1.10.tar.gz
+Version  : 1.11
+Release  : 10
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.11/level-zero-1.11.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.11/level-zero-1.11.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
 License  : MIT
@@ -53,15 +53,15 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.10
-cd %{_builddir}/level-zero-1.10
+%setup -q -n level-zero-1.11
+cd %{_builddir}/level-zero-1.11
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681143091
+export SOURCE_DATE_EPOCH=1682962428
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -77,7 +77,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1681143091
+export SOURCE_DATE_EPOCH=1682962428
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :
@@ -109,11 +109,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libze_loader.so.1
-/usr/lib64/libze_loader.so.1.10.0
+/usr/lib64/libze_loader.so.1.11.0
 /usr/lib64/libze_tracing_layer.so.1
-/usr/lib64/libze_tracing_layer.so.1.10.0
+/usr/lib64/libze_tracing_layer.so.1.11.0
 /usr/lib64/libze_validation_layer.so.1
-/usr/lib64/libze_validation_layer.so.1.10.0
+/usr/lib64/libze_validation_layer.so.1.11.0
 
 %files license
 %defattr(0644,root,root,0755)

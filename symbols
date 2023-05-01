@@ -197,6 +197,7 @@ libze_loader.so.1:zelLoaderGetVersions
 libze_loader.so.1:zelLoaderGetVersionsInternal
 libze_loader.so.1:zelLoaderTranslateHandle
 libze_loader.so.1:zelLoaderTranslateHandleInternal
+libze_loader.so.1:zelSetDriverTeardown
 libze_loader.so.1:zelTracerCommandListAppendBarrierRegisterCallback
 libze_loader.so.1:zelTracerCommandListAppendEventResetRegisterCallback
 libze_loader.so.1:zelTracerCommandListAppendImageCopyFromMemoryExtRegisterCallback
@@ -399,7 +400,6 @@ libze_loader.so.1:zesDriverGet
 libze_loader.so.1:zesEngineGetActivity
 libze_loader.so.1:zesEngineGetProperties
 libze_loader.so.1:zesFabricPortGetConfig
-libze_loader.so.1:zesFabricPortGetFabricErrorCounters
 libze_loader.so.1:zesFabricPortGetLinkType
 libze_loader.so.1:zesFabricPortGetProperties
 libze_loader.so.1:zesFabricPortGetState

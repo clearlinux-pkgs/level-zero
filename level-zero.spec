@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : level-zero
-Version  : 1.11
-Release  : 10
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.11/level-zero-1.11.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.11/level-zero-1.11.tar.gz
+Version  : 1.12
+Release  : 11
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.12/level-zero-1.12.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.12/level-zero-1.12.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
 License  : MIT
@@ -53,37 +53,58 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.11
-cd %{_builddir}/level-zero-1.11
+%setup -q -n level-zero-1.12
+cd %{_builddir}/level-zero-1.12
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682962428
+export SOURCE_DATE_EPOCH=1686350924
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+%cmake ..
+make  %{?_smp_mflags}
+popd
+mkdir -p clr-build-avx2
+pushd clr-build-avx2
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1682962428
+export SOURCE_DATE_EPOCH=1686350924
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :
+pushd clr-build-avx2
+%make_install_v3  || :
+popd
 pushd clr-build
 %make_install
 popd
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -108,12 +129,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libze_loader.so.1.12.0
+/V3/usr/lib64/libze_tracing_layer.so.1.12.0
+/V3/usr/lib64/libze_validation_layer.so.1.12.0
 /usr/lib64/libze_loader.so.1
-/usr/lib64/libze_loader.so.1.11.0
+/usr/lib64/libze_loader.so.1.12.0
 /usr/lib64/libze_tracing_layer.so.1
-/usr/lib64/libze_tracing_layer.so.1.11.0
+/usr/lib64/libze_tracing_layer.so.1.12.0
 /usr/lib64/libze_validation_layer.so.1
-/usr/lib64/libze_validation_layer.so.1.11.0
+/usr/lib64/libze_validation_layer.so.1.12.0
 
 %files license
 %defattr(0644,root,root,0755)

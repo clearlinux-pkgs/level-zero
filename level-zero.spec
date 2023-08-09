@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : level-zero
-Version  : 1.13.1
-Release  : 12
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.13.1/level-zero-1.13.1.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.13.1/level-zero-1.13.1.tar.gz
+Version  : 1.13.5
+Release  : 13
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.13.5/level-zero-1.13.5.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.13.5/level-zero-1.13.5.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
 License  : MIT
@@ -53,15 +53,15 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.13.1
-cd %{_builddir}/level-zero-1.13.1
+%setup -q -n level-zero-1.13.5
+cd %{_builddir}/level-zero-1.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689347829
+export SOURCE_DATE_EPOCH=1691591650
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,7 +94,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1689347829
+export SOURCE_DATE_EPOCH=1691591650
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :

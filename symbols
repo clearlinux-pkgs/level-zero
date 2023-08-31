@@ -3,6 +3,7 @@ libze_loader.so.1:_ZN6loader19deleteLoaderContextEv
 libze_loader.so.1:_ZN6loader22discoverEnabledDriversB5cxx11Ev
 libze_loader.so.1:_ZN6loader9context_t11init_driverENS_8driver_tEj
 libze_loader.so.1:_ZN6loader9context_t13check_driversEj
+libze_loader.so.1:_ZN6loader9context_t17debug_trace_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
 libze_loader.so.1:_ZN6loader9context_t18add_loader_versionEv
 libze_loader.so.1:_ZN6loader9context_t4initEv
 libze_loader.so.1:_ZN6loader9context_tD1Ev
@@ -476,6 +477,7 @@ libze_loader.so.1:zesGetOverclockProcAddrTable
 libze_loader.so.1:zesGetPerformanceFactorProcAddrTable
 libze_loader.so.1:zesGetPowerProcAddrTable
 libze_loader.so.1:zesGetPsuProcAddrTable
+libze_loader.so.1:zesGetRasExpProcAddrTable
 libze_loader.so.1:zesGetRasProcAddrTable
 libze_loader.so.1:zesGetSchedulerProcAddrTable
 libze_loader.so.1:zesGetStandbyProcAddrTable
@@ -510,9 +512,11 @@ libze_loader.so.1:zesPowerSetLimits
 libze_loader.so.1:zesPowerSetLimitsExt
 libze_loader.so.1:zesPsuGetProperties
 libze_loader.so.1:zesPsuGetState
+libze_loader.so.1:zesRasClearStateExp
 libze_loader.so.1:zesRasGetConfig
 libze_loader.so.1:zesRasGetProperties
 libze_loader.so.1:zesRasGetState
+libze_loader.so.1:zesRasGetStateExp
 libze_loader.so.1:zesRasSetConfig
 libze_loader.so.1:zesSchedulerGetCurrentMode
 libze_loader.so.1:zesSchedulerGetProperties
@@ -826,6 +830,7 @@ libze_validation_layer.so.1:zesGetOverclockProcAddrTable
 libze_validation_layer.so.1:zesGetPerformanceFactorProcAddrTable
 libze_validation_layer.so.1:zesGetPowerProcAddrTable
 libze_validation_layer.so.1:zesGetPsuProcAddrTable
+libze_validation_layer.so.1:zesGetRasExpProcAddrTable
 libze_validation_layer.so.1:zesGetRasProcAddrTable
 libze_validation_layer.so.1:zesGetSchedulerProcAddrTable
 libze_validation_layer.so.1:zesGetStandbyProcAddrTable

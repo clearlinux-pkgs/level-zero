@@ -3,11 +3,13 @@ libze_loader.so.1:_ZN6loader19deleteLoaderContextEv
 libze_loader.so.1:_ZN6loader22discoverEnabledDriversB5cxx11Ev
 libze_loader.so.1:_ZN6loader9context_t11init_driverENS_8driver_tEj
 libze_loader.so.1:_ZN6loader9context_t13check_driversEj
-libze_loader.so.1:_ZN6loader9context_t17debug_trace_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
 libze_loader.so.1:_ZN6loader9context_t18add_loader_versionEv
+libze_loader.so.1:_ZN6loader9context_t19debug_trace_messageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
 libze_loader.so.1:_ZN6loader9context_t4initEv
 libze_loader.so.1:_ZN6loader9context_tD1Ev
 libze_loader.so.1:_ZN6loader9context_tD2Ev
+libze_loader.so.1:_ZN6loader9to_stringB5cxx11E12_ze_result_t
+libze_loader.so.1:_ZN6loader9to_stringB5cxx11Ej
 libze_loader.so.1:_ZN6ze_lib16createLibContextEv
 libze_loader.so.1:_ZN6ze_lib16deleteLibContextEv
 libze_loader.so.1:_ZN6ze_lib9context_tC1Ev
@@ -426,6 +428,8 @@ libze_loader.so.1:zesDiagnosticsRunTests
 libze_loader.so.1:zesDriverEventListen
 libze_loader.so.1:zesDriverEventListenEx
 libze_loader.so.1:zesDriverGet
+libze_loader.so.1:zesDriverGetExtensionFunctionAddress
+libze_loader.so.1:zesDriverGetExtensionProperties
 libze_loader.so.1:zesEngineGetActivity
 libze_loader.so.1:zesEngineGetActivityExt
 libze_loader.so.1:zesEngineGetProperties
@@ -444,6 +448,7 @@ libze_loader.so.1:zesFanSetDefaultMode
 libze_loader.so.1:zesFanSetFixedSpeedMode
 libze_loader.so.1:zesFanSetSpeedTableMode
 libze_loader.so.1:zesFirmwareFlash
+libze_loader.so.1:zesFirmwareGetFlashProgress
 libze_loader.so.1:zesFirmwareGetProperties
 libze_loader.so.1:zesFrequencyGetAvailableClocks
 libze_loader.so.1:zesFrequencyGetProperties

@@ -209,10 +209,13 @@ libze_loader.so.1:zeVirtualMemQueryPageSize
 libze_loader.so.1:zeVirtualMemReserve
 libze_loader.so.1:zeVirtualMemSetAccessAttribute
 libze_loader.so.1:zeVirtualMemUnmap
+libze_loader.so.1:zelDisableTracingLayer
+libze_loader.so.1:zelEnableTracingLayer
 libze_loader.so.1:zelGetTracerApiProcAddrTable
 libze_loader.so.1:zelLoaderDriverCheck
 libze_loader.so.1:zelLoaderGetVersions
 libze_loader.so.1:zelLoaderGetVersionsInternal
+libze_loader.so.1:zelLoaderTracingLayerInit
 libze_loader.so.1:zelLoaderTranslateHandle
 libze_loader.so.1:zelLoaderTranslateHandleInternal
 libze_loader.so.1:zelSetDriverTeardown

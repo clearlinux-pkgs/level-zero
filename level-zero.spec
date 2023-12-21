@@ -6,10 +6,10 @@
 # autospec commit: c1050fe
 #
 Name     : level-zero
-Version  : 1.15.7
-Release  : 17
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.15.7/level-zero-1.15.7.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.15.7/level-zero-1.15.7.tar.gz
+Version  : 1.15.8
+Release  : 18
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.15.8/level-zero-1.15.8.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.15.8/level-zero-1.15.8.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
 License  : MIT
@@ -55,15 +55,15 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.15.7
-cd %{_builddir}/level-zero-1.15.7
+%setup -q -n level-zero-1.15.8
+cd %{_builddir}/level-zero-1.15.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1703112075
+export SOURCE_DATE_EPOCH=1703171213
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,7 +122,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1703112075
+export SOURCE_DATE_EPOCH=1703171213
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :

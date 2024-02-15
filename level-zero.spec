@@ -6,10 +6,10 @@
 # autospec commit: da8b975
 #
 Name     : level-zero
-Version  : 1.15.13
-Release  : 19
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.15.13/level-zero-1.15.13.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.15.13/level-zero-1.15.13.tar.gz
+Version  : 1.16
+Release  : 20
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.16/level-zero-1.16.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.16/level-zero-1.16.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
 License  : MIT
@@ -55,15 +55,15 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.15.13
-cd %{_builddir}/level-zero-1.15.13
+%setup -q -n level-zero-1.16
+cd %{_builddir}/level-zero-1.16
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707404902
+export SOURCE_DATE_EPOCH=1707957979
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +124,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1707404902
+export SOURCE_DATE_EPOCH=1707957979
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :
@@ -162,15 +162,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libze_loader.so.1.15.0
-/V3/usr/lib64/libze_tracing_layer.so.1.15.0
-/V3/usr/lib64/libze_validation_layer.so.1.15.0
+/V3/usr/lib64/libze_loader.so.1.16.0
+/V3/usr/lib64/libze_tracing_layer.so.1.16.0
+/V3/usr/lib64/libze_validation_layer.so.1.16.0
 /usr/lib64/libze_loader.so.1
-/usr/lib64/libze_loader.so.1.15.0
+/usr/lib64/libze_loader.so.1.16.0
 /usr/lib64/libze_tracing_layer.so.1
-/usr/lib64/libze_tracing_layer.so.1.15.0
+/usr/lib64/libze_tracing_layer.so.1.16.0
 /usr/lib64/libze_validation_layer.so.1
-/usr/lib64/libze_validation_layer.so.1.15.0
+/usr/lib64/libze_validation_layer.so.1.16.0
 
 %files license
 %defattr(0644,root,root,0755)

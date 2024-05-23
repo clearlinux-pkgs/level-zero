@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : level-zero
-Version  : 1.17
-Release  : 23
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.17/level-zero-1.17.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.17/level-zero-1.17.tar.gz
+Version  : 1.17.2
+Release  : 24
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.17.2/level-zero-1.17.2.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.17.2/level-zero-1.17.2.tar.gz
 Source1  : https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
@@ -57,19 +57,19 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.17
+%setup -q -n level-zero-1.17.2
 cd %{_builddir}
 tar xf %{_sourcedir}/v1.13.0.tar.gz
-cd %{_builddir}/level-zero-1.17
+cd %{_builddir}/level-zero-1.17.2
 mkdir -p source/utils/spdlog
-cp -r %{_builddir}/spdlog-1.13.0/* %{_builddir}/level-zero-1.17/source/utils/spdlog
+cp -r %{_builddir}/spdlog-1.13.0/* %{_builddir}/level-zero-1.17.2/source/utils/spdlog
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1715264915
+export SOURCE_DATE_EPOCH=1716475638
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -130,7 +130,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1715264915
+export SOURCE_DATE_EPOCH=1716475638
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :

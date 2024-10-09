@@ -541,7 +541,6 @@ libze_loader.so.1:zesGetSchedulerProcAddrTable
 libze_loader.so.1:zesGetStandbyProcAddrTable
 libze_loader.so.1:zesGetTemperatureProcAddrTable
 libze_loader.so.1:zesGetVFManagementExpProcAddrTable
-libze_loader.so.1:zesGetVFManagementProcAddrTable
 libze_loader.so.1:zesInit
 libze_loader.so.1:zesLedGetProperties
 libze_loader.so.1:zesLedGetState
@@ -956,7 +955,6 @@ libze_validation_layer.so.1:zesGetSchedulerProcAddrTable
 libze_validation_layer.so.1:zesGetStandbyProcAddrTable
 libze_validation_layer.so.1:zesGetTemperatureProcAddrTable
 libze_validation_layer.so.1:zesGetVFManagementExpProcAddrTable
-libze_validation_layer.so.1:zesGetVFManagementProcAddrTable
 libze_validation_layer.so.1:zetGetCommandListProcAddrTable
 libze_validation_layer.so.1:zetGetContextProcAddrTable
 libze_validation_layer.so.1:zetGetDebugProcAddrTable

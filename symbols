@@ -162,6 +162,7 @@ libze_loader.so.1:zeInit
 libze_loader.so.1:zeInitDrivers
 libze_loader.so.1:zeKernelCreate
 libze_loader.so.1:zeKernelDestroy
+libze_loader.so.1:zeKernelGetBinaryExp
 libze_loader.so.1:zeKernelGetIndirectAccess
 libze_loader.so.1:zeKernelGetName
 libze_loader.so.1:zeKernelGetProperties
@@ -367,6 +368,7 @@ libze_loader.so.1:zelTracerInitDriversRegisterCallback
 libze_loader.so.1:zelTracerInitRegisterCallback
 libze_loader.so.1:zelTracerKernelCreateRegisterCallback
 libze_loader.so.1:zelTracerKernelDestroyRegisterCallback
+libze_loader.so.1:zelTracerKernelGetBinaryExpRegisterCallback
 libze_loader.so.1:zelTracerKernelGetIndirectAccessRegisterCallback
 libze_loader.so.1:zelTracerKernelGetNameRegisterCallback
 libze_loader.so.1:zelTracerKernelGetPropertiesRegisterCallback
@@ -844,6 +846,7 @@ libze_tracing_layer.so.1:zelTracerInitDriversRegisterCallback
 libze_tracing_layer.so.1:zelTracerInitRegisterCallback
 libze_tracing_layer.so.1:zelTracerKernelCreateRegisterCallback
 libze_tracing_layer.so.1:zelTracerKernelDestroyRegisterCallback
+libze_tracing_layer.so.1:zelTracerKernelGetBinaryExpRegisterCallback
 libze_tracing_layer.so.1:zelTracerKernelGetIndirectAccessRegisterCallback
 libze_tracing_layer.so.1:zelTracerKernelGetNameRegisterCallback
 libze_tracing_layer.so.1:zelTracerKernelGetPropertiesRegisterCallback

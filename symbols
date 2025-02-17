@@ -918,6 +918,7 @@ libze_tracing_layer.so.1:zelTracerVirtualMemQueryPageSizeRegisterCallback
 libze_tracing_layer.so.1:zelTracerVirtualMemReserveRegisterCallback
 libze_tracing_layer.so.1:zelTracerVirtualMemSetAccessAttributeRegisterCallback
 libze_tracing_layer.so.1:zelTracerVirtualMemUnmapRegisterCallback
+libze_validation_layer.so.1:loader::to_string[abi:cxx11](_ze_result_t)
 libze_validation_layer.so.1:zeGetCommandListExpProcAddrTable
 libze_validation_layer.so.1:zeGetCommandListProcAddrTable
 libze_validation_layer.so.1:zeGetCommandQueueProcAddrTable

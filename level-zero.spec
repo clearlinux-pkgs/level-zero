@@ -6,10 +6,10 @@
 # autospec commit: fbbd4e3
 #
 Name     : level-zero
-Version  : 1.21.1
-Release  : 50
-URL      : https://github.com/oneapi-src/level-zero/archive/v1.21.1/level-zero-1.21.1.tar.gz
-Source0  : https://github.com/oneapi-src/level-zero/archive/v1.21.1/level-zero-1.21.1.tar.gz
+Version  : 1.21.4
+Release  : 51
+URL      : https://github.com/oneapi-src/level-zero/archive/v1.21.4/level-zero-1.21.4.tar.gz
+Source0  : https://github.com/oneapi-src/level-zero/archive/v1.21.4/level-zero-1.21.4.tar.gz
 Source1  : https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz
 Summary  : Level Zero
 Group    : Development/Tools
@@ -57,14 +57,14 @@ license components for the level-zero package.
 
 
 %prep
-%setup -q -n level-zero-1.21.1
+%setup -q -n level-zero-1.21.4
 cd %{_builddir}
 tar xf %{_sourcedir}/v1.13.0.tar.gz
-cd %{_builddir}/level-zero-1.21.1
+cd %{_builddir}/level-zero-1.21.4
 mkdir -p source/utils/spdlog
-cp -r %{_builddir}/spdlog-1.13.0/. %{_builddir}/level-zero-1.21.1/source/utils/spdlog
+cp -r %{_builddir}/spdlog-1.13.0/. %{_builddir}/level-zero-1.21.4/source/utils/spdlog
 pushd ..
-cp -a level-zero-1.21.1 buildavx2
+cp -a level-zero-1.21.4 buildavx2
 popd
 
 %build
@@ -72,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1742418828
+export SOURCE_DATE_EPOCH=1742766655
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -135,12 +135,11 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1742418828
+export SOURCE_DATE_EPOCH=1742766655
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/level-zero
 cp %{_builddir}/level-zero-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :
 cp %{_builddir}/level-zero-%{version}/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/level-zero/58853eb8199b5afe72a73a25fd8cf8c94285174b || :
-cp %{_builddir}/level-zero-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/level-zero/6ec9ed37578702833be1af0c8089e57132b8a6bf || :
 cp %{_builddir}/level-zero-%{version}/third_party/spdlog_headers/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/bab970f85d9d9b485a36b93f8678fff4850d76fd || :
 cp %{_builddir}/level-zero-%{version}/third_party/xla/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/58853eb8199b5afe72a73a25fd8cf8c94285174b || :
 cp %{_builddir}/spdlog-1.13.0/LICENSE %{buildroot}/usr/share/package-licenses/level-zero/bab970f85d9d9b485a36b93f8678fff4850d76fd || :
@@ -176,20 +175,18 @@ popd
 /usr/lib64/libze_loader.so
 /usr/lib64/libze_tracing_layer.so
 /usr/lib64/libze_validation_layer.so
-/usr/lib64/pkgconfig/level-zero.pc
-/usr/lib64/pkgconfig/libze_loader.pc
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libze_loader.so.1.21.1
-/V3/usr/lib64/libze_tracing_layer.so.1.21.1
-/V3/usr/lib64/libze_validation_layer.so.1.21.1
+/V3/usr/lib64/libze_loader.so.1.21.3
+/V3/usr/lib64/libze_tracing_layer.so.1.21.3
+/V3/usr/lib64/libze_validation_layer.so.1.21.3
 /usr/lib64/libze_loader.so.1
-/usr/lib64/libze_loader.so.1.21.1
+/usr/lib64/libze_loader.so.1.21.3
 /usr/lib64/libze_tracing_layer.so.1
-/usr/lib64/libze_tracing_layer.so.1.21.1
+/usr/lib64/libze_tracing_layer.so.1.21.3
 /usr/lib64/libze_validation_layer.so.1
-/usr/lib64/libze_validation_layer.so.1.21.1
+/usr/lib64/libze_validation_layer.so.1.21.3
 
 %files license
 %defattr(0644,root,root,0755)

@@ -229,6 +229,7 @@ libze_loader.so.1:zeVirtualMemSetAccessAttribute
 libze_loader.so.1:zeVirtualMemUnmap
 libze_loader.so.1:ze_lib::createLibContext()
 libze_loader.so.1:ze_lib::deleteLibContext()
+libze_loader.so.1:zelCheckIsLoaderInTearDown
 libze_loader.so.1:zelDisableTracingLayer
 libze_loader.so.1:zelEnableTracingLayer
 libze_loader.so.1:zelGetTracerApiProcAddrTable
